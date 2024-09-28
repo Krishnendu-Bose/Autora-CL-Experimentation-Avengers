@@ -1,11 +1,9 @@
 import { initJsPsych } from 'jspsych';
 import 'jspsych/css/jspsych.css'
 import htmlKeyboardResponse from '@jspsych/plugin-html-keyboard-response';
-import jsPsychRok from '@jspsych-contrib/plugin-rok'
 
 global.initJsPsych = initJsPsych;
 global.jsPsychHtmlKeyboardResponse = htmlKeyboardResponse
-global.jsPsychRok = jsPsychRok
 
 /**
  * This is the main function where you program your experiment. For example, you can install jsPsych via node and
@@ -17,7 +15,13 @@ global.jsPsychRok = jsPsychRok
 const main = async (id, condition) => {
     const observation = await eval(condition['experiment_code'] + "\nrunExperiment();");
     // Here we get the average reaction time
-    return JSON.stringify(observation)
+    const rt_array = observation.select('rt')['values']
+    let sum_rt = 0;
+    for(let i = 0; i < rt_array.length; i++) {
+        sum_rt += rt_array[i];
+    }
+    let avg = sum_rt / rt_array.length;
+    return JSON.stringify({word: condition['word'], color: condition['color'], rt: avg})
 }
 
 

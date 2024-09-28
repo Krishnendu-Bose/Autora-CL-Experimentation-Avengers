@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@jspsych-contrib/plugin-rok": "^1.1.1",
     "@jspsych/plugin-html-keyboard-response": "^2.0.0",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
