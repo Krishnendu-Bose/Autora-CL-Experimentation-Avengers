@@ -1,0 +1,6 @@
+autora-core
+autora[theorist-bms]
+autora[experimentalist-uncertainty]
+autora[experiment-runner-firebase-prolific]
+sweetbean
+sweetpea
